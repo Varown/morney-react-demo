@@ -6,10 +6,12 @@ import {CategorySection} from './Money/CategorySection';
 import {NotesSection} from './Money/NotesSection';
 import {NumberPadSection} from './Money/NumberPadSection';
 
+
 const MyLayout = styled(Layout)`
   display:flex;
   flex-direction: column;
 `
+
 function Money() {
   return (
     <MyLayout>
