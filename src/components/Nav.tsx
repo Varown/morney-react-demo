@@ -30,7 +30,7 @@ const Nav = () => {
     <NavWrapper>
       <ul>
         <li>
-          <Icon name="tag "/>
+          <Icon name="tag"/>
           <Link to="/tags">标签页</Link>
         </li>
         <li>
