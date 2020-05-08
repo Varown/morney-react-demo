@@ -7,30 +7,13 @@ import {
   Redirect,
 
 } from "react-router-dom";
-import styled from 'styled-components';
-import Nav from './components/Nav';
 
-const Wrapper=styled.div`
-
-height: 100vh;
-display: flex;
-flex-direction:column ;
-
-`
-const Main=styled.div`
-
-flex-grow: 1;
-overflow:auto;
-`
-
+import Layout from './components/Layout';
 
 
  function App() {
-
    return (
     <Router>
-      <Wrapper>
-        <Main>
           <Switch>
             <Route path="/tags">
               <Tags />
@@ -46,9 +29,6 @@ overflow:auto;
               <NoMatch />
             </Route>
           </Switch>
-        </Main>
-        <Nav />
-      </Wrapper>
     </Router>
   );
 }
@@ -57,14 +37,25 @@ function NoMatch() {
   return <h2>页面不存在，地址有误</h2>;
 }
 function Statistics() {
-  return <h2>我是统计</h2>;
+  return(
+    <Layout>
+      <h2>我是统计</h2>
+    </Layout>
+
+  )
 }
 
 function Tags() {
-  return <h2>我是标签</h2>;
+  return(
+    <Layout>
+    <h2>我是标签</h2>
+  </Layout>)
 }
 
 function Money() {
-  return <h2>我是记账</h2>;
+  return (
+    <Layout>
+      <h2>我是记账</h2>
+    </Layout>)
 }
 export default  App;
