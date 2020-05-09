@@ -14,7 +14,7 @@ type Category='-'|'+'
 
 function Money() {
   const [selected,setSelected]=useState({
-    tags:[] as string[],
+    tagIds:[] as number[],
     node:'',
     category:'-'as Category,
     amount:0
@@ -32,15 +32,15 @@ function Money() {
   return (
     <MyLayout>
 
-      <TagsSection value={selected.tags}
-                   onChange={(tags)=>onChange({tags: tags})}/>
+      <TagsSection value={selected.tagIds}
+                   onChange={(tagIds)=>onChange({tagIds})}/>
 
       <NoteSection value={selected.node}
-                   onChange={(node)=>onChange({node:node})}/>
+                   onChange={(node)=>onChange({node})}/>
       <CategorySection value={selected.category}
-                       onChange={(category)=>onChange({category:category})}/>
+                       onChange={(category)=>onChange({category})}/>
       <NumberPadSection value={selected.amount}
-                        onChange={(amount:number)=>onChange({amount:amount})}/>
+                        onChange={(amount:number)=>onChange({amount})}/>
     </MyLayout>
   );
 }
