@@ -19,16 +19,16 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/tags" exact>
+        <Route exact path="/tags" >
           <Tags/>
         </Route>
-        <Route path="/tags/:tag" exact>
+        <Route exact path="/tags/:id">
           <Tag/>
         </Route>
-        <Route path="/money" exact>
+        <Route exact path="/money" >
           <Money/>
         </Route>
-        <Route path="/statistics" exact>
+        <Route exact path="/statistics">
           <Statistics/>
         </Route>
         <Redirect exact from="/" to="/money"/>
