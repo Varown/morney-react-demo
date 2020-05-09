@@ -19,7 +19,6 @@ const NumberPadSection: React.FC<Props>  = (props) => {
     }else {
       value=parseFloat(output)
     }
-
     props.onChange(value);
   };
   const onClickButtonWrapper = (e: React.MouseEvent) => {
@@ -29,7 +28,6 @@ const NumberPadSection: React.FC<Props>  = (props) => {
 
     if ('0123456789.'.split('').concat(['删除', '清空']).indexOf(text) >= 0) {
       setOutput(generateOutput(text, output));
-
     }
   };
 

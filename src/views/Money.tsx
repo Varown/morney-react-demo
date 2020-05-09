@@ -31,6 +31,7 @@ function Money() {
 
   return (
     <MyLayout>
+
       <TagsSection value={selected.tags}
                    onChange={(tags)=>onChange({tags: tags})}/>
 
