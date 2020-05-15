@@ -36,16 +36,15 @@ const Tag: React.FC = () => {
         <span>编辑标签</span>
         <Icon/>
       </Topbar>
-      <div>
-        <Input label="标签名" type="text" placeholder="标签名"/>
-      </div>
+
       <InputWrapper>
+        <Input label="标签名" type="text" value={tag.name} placeholder="标签名"/>
+      </InputWrapper>
         <Center>
           <Space/>
           <Space/>
         <Button>删除标签</Button>
         </Center>
-      </InputWrapper>
     </Layout>
   );
 };
