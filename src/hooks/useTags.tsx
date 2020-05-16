@@ -1,22 +1,21 @@
 import {useEffect, useState} from 'react';
-import {createId} from './lib/createId';
-import {useUpdate} from './hooks/useUpdate';
-
-
+import {createId} from '../lib/createId';
+import {useUpdate} from './useUpdate';
 const useTags = () => {
   const [tags, setTags] = useState<{ id: number; name: string }[]>([]);
 
   useEffect(() => {
-   let localTags= JSON.parse(window.localStorage.getItem('tags') || '[]');
-  if(localTags.length===0){
-    localTags= [
+    let localTags = JSON.parse(window.localStorage.getItem('tags') || '[]');
+    if (localTags.length === 0) {
+      localTags = [
         {id: createId(), name: '衣'},
         {id: createId(), name: '食'},
         {id: createId(), name: '住'},
         {id: createId(), name: '行'},
-      ];}
-   setTags(localTags)
-   }, []);
+      ];
+    }
+    setTags(localTags);
+  }, []);
 
   useUpdate(() => {
     window.localStorage.setItem('tags', JSON.stringify(tags));
@@ -47,8 +46,10 @@ const useTags = () => {
   };
   const addTag = () => {
     const tagNames = window.prompt('请输入要添加的标签名称');
-    if (tagNames !== null &&  tagNames !=='') {
-     const tagName=tagNames.replace(/\s*/g,"");
+    if(tagNames=== null){return}
+    let tagName = tagNames.replace(/\s*/g,"");
+    if (tagName !== null && tagName !== '') {
+
       setTags([...tags, {id: createId(), name: tagName}]);
     }else {
       window.alert('标签名不能为空')

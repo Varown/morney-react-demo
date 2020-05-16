@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {useTags} from '../../useTags';
+import {useTags} from '../../hooks/useTags';
 import React from 'react';
 
 

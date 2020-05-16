@@ -1,5 +1,5 @@
 import React from 'react';
-import {useTags} from '../useTags';
+import {useTags} from '../hooks/useTags';
 import {useParams,useHistory} from 'react-router-dom';
 import Layout from '../components/Layout';
 import Icon from '../components/icon';
@@ -33,7 +33,10 @@ const Tag: React.FC = () => {
         <Input label="标签名" type="text" placeholder="标签名"
                value={tag.name}
                onChange={(e) => {
-                 updateTag(tag.id, {name: e.target.value});
+                 const names=e.target.value
+                 if(names=== null){return}
+                 let Name =names.replace(/\s*/g,"");
+                 updateTag(tag.id, {name:Name});
                }}
         />
       </InputWrapper>
@@ -50,6 +53,9 @@ const Tag: React.FC = () => {
   const history=useHistory()
 
   const onClickBack=()=>{
+    if (tag.name===''){
+      deleteTag(tag.id);
+    }
    history.goBack()
   }
 
