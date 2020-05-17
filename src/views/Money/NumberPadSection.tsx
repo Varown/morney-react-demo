@@ -22,7 +22,6 @@ const NumberPadSection: React.FC<Props>  = (props) => {
     }
     _setOutput(newOutput);
     props.onChange(parseFloat(newOutput));
-    console.log(parseFloat(newOutput));
   };
 
   const onClickButtonWrapper = (e: React.MouseEvent) => {

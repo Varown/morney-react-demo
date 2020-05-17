@@ -11,7 +11,7 @@ const useUpdate = (fn: () => void, deps: any[]) => {
     if (count.current > 1) {
       fn();
     }
-  }, [deps]);
+  }, [fn,deps]);
 
 };
 export {useUpdate};

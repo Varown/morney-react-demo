@@ -17,6 +17,9 @@ const defaultFormData = {
   category: '-' as Category,
   amount: 0
 };
+const CategoryWrapper = styled.div`
+    background:#c4c4c4;
+`;
 function Money() {
   const [selected, setSelected] = useState(defaultFormData);
   const {addRecord} = useRecords();
@@ -29,9 +32,14 @@ function Money() {
     )
   }
 const submit=()=>{
-  addRecord(selected);
-  alert('保存成功');
-  setSelected(defaultFormData);
+    if(selected.tagIds.length===0){
+      alert('请至少选择一个标签');
+    }else{
+      addRecord(selected);
+      alert('保存成功');
+      setSelected(defaultFormData);
+    }
+
 }
   return (
     <MyLayout>
@@ -41,8 +49,10 @@ const submit=()=>{
 
       <NoteSection value={selected.note}
                    onChange={(note)=>onChange({note})}/>
-      <CategorySection value={selected.category}
-                       onChange={(category)=>onChange({category})}/>
+      <CategoryWrapper>
+        <CategorySection value={selected.category}
+                         onChange={category => onChange({category})}/>
+      </CategoryWrapper>
       <NumberPadSection value={selected.amount}
                         onOk={submit}
                         onChange={(amount:number)=>onChange({amount})}/>
