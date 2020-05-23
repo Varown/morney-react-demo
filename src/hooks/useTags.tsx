@@ -40,6 +40,7 @@ const useTags = () => {
     // 把 tagsClone 的第 index 删掉，换成 {id:id, name: obj.name}
     tagsClone.splice(index, 1, {id: id, name: obj.name});
     setTags(tagsClone);
+
   };
   const deleteTag = (id: number) => {
     setTags(tags.filter(tag => tag.id !== id));
@@ -49,8 +50,11 @@ const useTags = () => {
     if(tagNames=== null){return}
     let tagName = tagNames.replace(/\s*/g,"");
     if (tagName !== null && tagName !== '') {
-
-      setTags([...tags, {id: createId(), name: tagName}]);
+      if(tags.filter(tag=>tag.name===tagName).length===0){
+        setTags([...tags, {id: createId(), name: tagName}]);
+      }else {
+        window.alert('标签名重复')
+      }
     }else {
       window.alert('标签名不能为空')
     }
