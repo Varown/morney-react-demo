@@ -1,6 +1,8 @@
 import {useEffect, useState} from 'react';
 import {createId} from '../lib/createId';
 import {useUpdate} from './useUpdate';
+
+
 const useTags = () => {
   const [tags, setTags] = useState<{ id: number; name: string }[]>([]);
 
@@ -32,6 +34,7 @@ const useTags = () => {
     }
     return result;
   };
+
   const updateTag = (id: number, obj: { name: string }) => {
     // 获取你要改的 tag 的下标
     const index = findTagIndex(id);
@@ -64,7 +67,10 @@ const useTags = () => {
     const tag = tags.filter(t => t.id === id)[0];
     return tag ? tag.name : '';
   };
-  return {tags, getName, addTag, setTags, findTag, updateTag, findTagIndex, deleteTag};
+  const xxx=(name:string)=>{
+    return tags.filter(tag => tag.name === name).length <= 1;
+  }
+  return {tags, getName,xxx, addTag, setTags, findTag, updateTag, findTagIndex, deleteTag};
 
 };
 export {useTags};
