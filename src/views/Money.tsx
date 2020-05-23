@@ -32,6 +32,7 @@ function Money() {
     )
   }
 const submit=()=>{
+    if(selected.amount===0){return}
     if(selected.tagIds.length===0){
       alert('请至少选择一个标签');
     }else{
@@ -42,7 +43,7 @@ const submit=()=>{
 
 }
   return (
-    <MyLayout>
+    <MyLayout scrollTop={9999}>
 
       <TagsSection value={selected.tagIds}
                    onChange={(tagIds)=>onChange({tagIds})}/>
