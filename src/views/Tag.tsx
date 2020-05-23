@@ -53,8 +53,14 @@ const Tag: React.FC = () => {
   const history=useHistory()
 
   const onClickBack=()=>{
-
-   history.goBack()
+    if (tag){
+      if(tag.name===''){
+        deleteTag(tag.id);
+        history.goBack()
+      }else {
+        history.goBack()
+      }
+    }else { history.goBack()}
   }
 
   return (
