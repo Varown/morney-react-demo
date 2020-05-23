@@ -24,7 +24,7 @@ const InputWrapper = styled.div`
   margin-top: 8px;
 `;
 const Tag: React.FC = () => {
-  const {findTag, updateTag, deleteTag,xxx} = useTags();
+  const {findTag, updateTag, deleteTag,echo} = useTags();
   let {id: idString} = useParams<Params>();
   const tag = findTag(parseInt(idString));
   const tagContent = (tag: { id: number; name: string }) => (
@@ -57,7 +57,7 @@ const Tag: React.FC = () => {
       if(tag.name===''){
         deleteTag(tag.id);
         history.goBack()
-      }else if(xxx(tag.name)) {
+      }else if(echo(tag.name)) {
         history.goBack()
       }else {
         window.alert('标签名重复')
@@ -73,9 +73,7 @@ const Tag: React.FC = () => {
         <span>编辑标签</span>
         <Icon/>
       </Topbar>
-
       {tag ? tagContent(tag) : <Center>tag 不存在</Center>}
-
     </Layout>
   );
 };

@@ -67,10 +67,10 @@ const useTags = () => {
     const tag = tags.filter(t => t.id === id)[0];
     return tag ? tag.name : '';
   };
-  const xxx=(name:string)=>{
+  const echo=(name:string)=>{
     return tags.filter(tag => tag.name === name).length <= 1;
   }
-  return {tags, getName,xxx, addTag, setTags, findTag, updateTag, findTagIndex, deleteTag};
+  return {tags, getName,echo, addTag, setTags, findTag, updateTag, findTagIndex, deleteTag};
 
 };
 export {useTags};
