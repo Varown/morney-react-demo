@@ -13,10 +13,16 @@ import Money from './views/Money';
 import Statistics from './views/Statistics';
 import NoMatch from './views/NoMatch';
 import {Tag} from './views/Tag';
+import styled from 'styled-components';
 
-
+const AppWrapper=styled.div`
+color: #333;
+max-width: 520px;
+margin: 0 auto;
+`
 function App() {
   return (
+<AppWrapper>
     <Router>
       <Switch>
         <Route exact path="/tags" >
@@ -37,6 +43,7 @@ function App() {
         </Route>
       </Switch>
     </Router>
+</AppWrapper>
   );
 }
 
